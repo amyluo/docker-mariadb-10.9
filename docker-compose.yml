@@ -1,0 +1,14 @@
+version: '3.6'
+
+services:
+  mariadb109:
+    image: mariadb:10.9
+    container_name: mariadb109
+    hostname: mariadb-10.9
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+    volumes:
+      - ~/docker-tmp/mariadb109:/var/lib/mysql
+    command: ["mysqld", "--server_id=1","--log_bin"]
+    ports:
+      - "3666:3306"
